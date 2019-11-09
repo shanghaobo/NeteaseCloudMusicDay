@@ -18,10 +18,18 @@ class CloudMusic:
         """登录"""
         res = self.get('/login/cellphone?phone=%s&password=%s' % (self.phone, self.password))
         data=res.json()
-        # print(data)
         if data.get('account'):
             return data.get('account').get('id')
         return None
+
+    def refresh(self):
+        """刷新登录状态"""
+        res=self.get('/login/refresh')
+        data=res.json()
+        if data.get('code')==200:
+            return True
+        log.info(data)
+        return False
 
     def createMusicList(self,name):
         """创建歌单"""
@@ -91,8 +99,10 @@ if __name__=='__main__':
     # 循环检测
     while True:
         try:
+            flag=cm.refresh()
+            log.info('刷新登录状态:%s'%flag)
             list_name = time.strftime('%Y-%m-%d') + '日推'
-            log.info('歌单名 list_name=%s' % list_name)
+            log.info('生成歌单名 list_name=%s' % list_name)
             user_music_list = cm.getUserMusicList(uid)
             if list_name in user_music_list:
                 log.info('已有日推歌单：%s' % list_name)
