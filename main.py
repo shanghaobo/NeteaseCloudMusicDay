@@ -102,7 +102,7 @@ if __name__=='__main__':
                 list_id = cm.createMusicList(list_name)
             log.info('歌单id list_id=%s' % list_id)
             log.info('获取日推歌曲：')
-            day_music_ids = cm.getDaySend()[::-1]
+            day_music_ids = cm.getDaySend()
             list_music_ids = cm.getMusicListDetail(list_id)
             log.info(day_music_ids)
             will_add_list = []
