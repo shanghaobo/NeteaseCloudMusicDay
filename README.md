@@ -9,8 +9,7 @@
 
 ### 使用环境
 - Python 3.7
-- 本项目依赖于NeteaseCloudMusicApi，请先搭建好环境
-链接：[https://github.com/Binaryify/NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)
+- 本项目依赖于[NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)，请先搭建好环境
 
 ### 使用帮助
 - 将config.sample.py 改名为 config.py，并配置账户信息
