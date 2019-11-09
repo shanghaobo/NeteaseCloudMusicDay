@@ -10,7 +10,20 @@
 ### 使用环境
 - Python 3.7
 - 本项目依赖于[NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)，请先搭建好环境
+    推荐使用docker镜像一键部署
+
+    ```bash
+    docker pull binaryify/netease_cloud_music_api
+    docker run -d -p 3000:3000 --name netease_cloud_music_api    binaryify/netease_cloud_music_api
+    ```
+    其他方式请参考官方文档
+   [https://binaryify.github.io/NeteaseCloudMusicApi](https://binaryify.github.io/NeteaseCloudMusicApi)
 
 ### 使用帮助
+
 - 将config.sample.py 改名为 config.py，并配置账户信息
 - 运行main.py即可
+
+    ```bash
+    python main.py
+    ```
