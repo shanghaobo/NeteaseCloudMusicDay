@@ -101,6 +101,10 @@ if __name__=='__main__':
         try:
             flag=cm.refresh()
             log.info('刷新登录状态:%s'%flag)
+            if int(time.strftime('%H'))<8:
+                #网易云6点更新推荐 8点后处理避免将昨天的歌单放到今天的歌单里
+                log.info('不到8点，不处理')
+                continue
             list_name = time.strftime('%Y-%m-%d') + '日推'
             log.info('生成歌单名 list_name=%s' % list_name)
             user_music_list = cm.getUserMusicList(uid)
