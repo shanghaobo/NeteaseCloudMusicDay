@@ -104,6 +104,8 @@ if __name__=='__main__':
             if int(time.strftime('%H'))<8:
                 #网易云6点更新推荐 8点后处理避免将昨天的歌单放到今天的歌单里
                 log.info('不到8点，不处理')
+                log.info('等待%s秒后再次检测...' % config.sleep)
+                time.sleep(config.sleep)
                 continue
             list_name = time.strftime('%Y-%m-%d') + '日推'
             log.info('生成歌单名 list_name=%s' % list_name)
