@@ -27,3 +27,7 @@
     ```bash
     python main.py
     ```
+
+### 使用效果
+
+![](demo.jpg)
