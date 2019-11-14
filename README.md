@@ -30,4 +30,4 @@
 
 ### 使用效果
 
-![](demo.jpg)
+<img src="demo.jpg"  width="150px">
