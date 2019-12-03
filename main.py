@@ -1,7 +1,7 @@
 import requests as r
 import time
-from . import MyLog
-from . import config
+import MyLog
+import config
 log=MyLog.log
 
 class CloudMusic:
