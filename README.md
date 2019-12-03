@@ -36,17 +36,17 @@
 - actions.yml
     ```yaml
     name: 网易云音乐日推自动创建歌单
-    
+
     on:
       schedule:
         # * is a special character in YAML so you have to quote this string
         - cron:  '* */1 * * *'
-    
+
     jobs:
       build:
-    
+
         runs-on: ubuntu-latest
-    
+
         steps:
         - name: 更新为中国时间
           run: |
@@ -54,29 +54,25 @@
             sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
             date
         - name: 安装网易云api
-          run: |
-            git clone https://github.com/shanghaobo/NeteaseCloudMusicApi.git
+          run: git clone https://github.com/shanghaobo/NeteaseCloudMusicApi.git
         - name: 运行网易云api
           run: |
             cd NeteaseCloudMusicApi
             npm install
             nohup node app.js &
         - name: 安装并脚本
-          run: |
-            git clone https://github.com/shanghaobo/NeteaseCloudMusicDay.git
-        - name: 设置配置
-          run: |
-            cd NeteaseCloudMusicDay
-            # api
-            echo "api='http://127.0.0.1:3000'" >> config.py
-            # your username
-            echo "phone='xxxxxxxxxxx'" >> config.py
-            # your password
-            echo "password='xxxxxx'" >> config.py
-            python3 main2.py
-        
+          run: git clone https://github.com/shanghaobo/NeteaseCloudMusicDay.git
+        - name: 设置api
+          run: echo "api='http://127.0.0.1:3000'" >> NeteaseCloudMusicDay/config.py
+        - name: 设置网易云音乐登录账号
+          run: echo "phone='xxxxxxxxxxx'" >> NeteaseCloudMusicDay/config.py
+        - name: 设置网易云音乐登录密码
+          run: echo "password='xxxxxx'" >> NeteaseCloudMusicDay/config.py
+        - name: 运行脚本
+          run: python3 NeteaseCloudMusicDay/main2.py
+
     ```
 
 ### 使用效果
 
-<img src="demo.jpg"  width="300px">
+  <img src="demo.jpg"  width="300px">
