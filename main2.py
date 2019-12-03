@@ -1,7 +1,7 @@
 """不打印日志版"""
 import requests as r
 import time
-from . import config
+import config
 
 class CloudMusic:
     def __init__(self,api,phone,password):
