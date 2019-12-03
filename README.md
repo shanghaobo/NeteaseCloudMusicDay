@@ -31,9 +31,9 @@
   使用GithubActions，无需服务器即可每天自动运行脚本
 - 使用教程
   - 在github创建个空仓库
-  - 创建/.github/workflows/actions.yml
+  - 创建/.github/workflows/day.yml
   - actions.yml内容如下，将里面的phone和password改成自己的网易云账号密码即可
-- actions.yml
+- day.yml
     ```yaml
     name: 网易云音乐日推自动创建歌单
 
