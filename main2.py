@@ -83,6 +83,13 @@ class CloudMusic:
                 detail[name]=str(id)
         return detail
 
+    def qiandao(self):
+        """签到"""
+        res = self.get('daily_signin')
+        data = res.json()
+        print(data)
+
+
 
 if __name__=='__main__':
     api=config.api
@@ -96,8 +103,9 @@ if __name__=='__main__':
         exit(0)
     print('【uid=%s】'%uid)
     try:
-        flag=cm.refresh()
-        print('刷新登录状态:%s'%flag)
+        print('开始签到')
+        cm.qiandao()
+        print('开始处理日推歌单')
         if int(time.strftime('%H'))<8:
             #网易云6点更新推荐 8点后处理避免将昨天的歌单放到今天的歌单里
             print('不到8点，不处理')
