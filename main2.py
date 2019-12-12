@@ -85,7 +85,7 @@ class CloudMusic:
 
     def qiandao(self):
         """签到"""
-        res = self.get('daily_signin')
+        res = self.get('/daily_signin')
         data = res.json()
         print(data)
 
